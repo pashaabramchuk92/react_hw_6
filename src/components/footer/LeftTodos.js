@@ -1,4 +1,4 @@
-const LeftNotes = () => {
+const LeftTodos = () => {
   return (
     <span className="todo-count">
       <strong>0</strong>
@@ -7,4 +7,4 @@ const LeftNotes = () => {
   )
 }
 
-export default LeftNotes;
+export default LeftTodos;
