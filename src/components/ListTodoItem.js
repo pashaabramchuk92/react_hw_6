@@ -32,7 +32,7 @@ const ListTodoItem = ({ deleteTodo, completeTodo, editTodo, text, id, completed 
           onChange={() => completeTodo(id)}
         />
         <label
-          onDoubleClick={() => completed ? false : setEditing(true)}
+          onDoubleClick={() => completed ? null : setEditing(true)}
         >{text}</label>
         <button
           className="destroy"
@@ -45,7 +45,7 @@ const ListTodoItem = ({ deleteTodo, completeTodo, editTodo, text, id, completed 
         className="edit"
         value={value}
         onBlur={() => handleUpdateTodo()}
-        onKeyDown={(e) => e.key === 'Enter' ? handleUpdateTodo() : false}
+        onKeyDown={(e) => e.key === 'Enter' ? handleUpdateTodo() : null}
         onChange={(e) => setValue(e.target.value)}
       />
     </li>

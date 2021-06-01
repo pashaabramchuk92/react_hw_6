@@ -8,27 +8,28 @@ import {
   DELETE_COMPLETED
 } from "./actionTypes";
 
-export const addTodo = (text, id = Date.now(), completed = false) => ({
+export const addTodo = (text) => ({
   type: ADD_TODO,
-  text,
-  id,
-  completed
+  payload: text
 });
+
 
 export const deleteTodo = (id) => ({
   type: DELETE_TODO,
-  id
+  payload: id
 });
 
 export const editTodo = (id, text) => ({
   type: EDIT_TODO,
-  id,
-  text
+  payload: {
+    id,
+    text
+  }
 });
 
 export const completeTodo = (id) => ({
   type: COMPLETE_TODO,
-  id
+  payload: id
 });
 
 export const changeFilter = (activeFilter) => ({
@@ -38,10 +39,10 @@ export const changeFilter = (activeFilter) => ({
 
 export const setAllComplete = (completed) => ({
   type: ALL_COMPLETE,
-  completed
+  payload: completed
 });
 
 export const deleteAllCompleted = (completed) => ({
   type: DELETE_COMPLETED,
-  completed
+  payload: completed
 });
