@@ -1,4 +1,4 @@
-const FilterNotes = () => {
+const FilterTodos = ({ filter }) => {
   return (
     <ul className="filters">
       <li>
@@ -14,4 +14,4 @@ const FilterNotes = () => {
   )
 }
 
-export default FilterNotes;
+export default FilterTodos;

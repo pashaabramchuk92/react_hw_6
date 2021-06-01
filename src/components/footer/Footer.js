@@ -1,12 +1,13 @@
 import ClearComplete from "./ClearComplete";
-import FilterNotes from "./FilterNotes";
-import LeftNotes from "./LeftNotes";
+import FilterTodos from "./FilterTodos";
+import LeftTodos from "./LeftTodos";
 
-const Footer = () => {
+const Footer = ({ filter, filterTodos }) => {
+  console.log(filter);
   return (
     <footer className="footer">
-      <LeftNotes />
-      <FilterNotes />
+      <LeftTodos />
+      <FilterTodos filter={filter} />
       <ClearComplete />
     </footer>
   )
