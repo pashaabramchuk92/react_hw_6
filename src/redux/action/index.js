@@ -3,7 +3,9 @@ import {
   DELETE_TODO,
   EDIT_TODO,
   COMPLETE_TODO,
-  FILTER_TODOS
+  CHANGE_FILTER,
+  ALL_COMPLETE,
+  DELETE_COMPLETED
 } from "./actionTypes";
 
 export const addTodo = (text, id = Date.now(), completed = false) => ({
@@ -29,7 +31,17 @@ export const completeTodo = (id) => ({
   id
 });
 
-export const filterTodos = (activeFilter) => ({
-  type: FILTER_TODOS,
+export const changeFilter = (activeFilter) => ({
+  type: CHANGE_FILTER,
   activeFilter
+});
+
+export const setAllComplete = (completed) => ({
+  type: ALL_COMPLETE,
+  completed
+});
+
+export const deleteAllCompleted = (completed) => ({
+  type: DELETE_COMPLETED,
+  completed
 });

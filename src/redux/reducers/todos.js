@@ -1,6 +1,13 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, COMPLETE_TODO } from '../action/actionTypes';
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  EDIT_TODO,
+  COMPLETE_TODO,
+  ALL_COMPLETE,
+  DELETE_COMPLETED
+} from '../action/actionTypes';
 
-const initialState = [{text: 'for test', id: 1, completed: false}]
+const initialState = []
 
 const todos = (state = initialState, { text, id, completed, type }) => {
   switch (type) {
@@ -31,7 +38,16 @@ const todos = (state = initialState, { text, id, completed, type }) => {
           };
         }
         return todo;
-      })
+      });
+    case ALL_COMPLETE:
+      return [...state].map(todo => {
+        todo.completed = completed;
+        return {
+          ...todo,
+        }
+      });
+    case DELETE_COMPLETED:
+      return [...state].filter(todo => todo.completed !== completed);
     default:
       return state;
   }

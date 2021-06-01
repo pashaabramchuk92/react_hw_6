@@ -1,13 +1,10 @@
+import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from "react";
+import { connect } from 'react-redux';
+import { deleteTodo, completeTodo, editTodo } from "../redux/action";
 
-const ListTodoItem = ({
-  text,
-  id,
-  completed,
-  deleteTodo,
-  completeTodo,
-  editTodo
-}) => {
+const ListTodoItem = ({ deleteTodo, completeTodo, editTodo, text, id, completed }) => {
+  
   const editRef = useRef();
 
   const [editing, setEditing] = useState(false);
@@ -24,7 +21,7 @@ const ListTodoItem = ({
     setEditing(false);
     editTodo(id, value);
   }
-  
+
   return (
     <li className={`${completeClassName} ${editingClassName}`}>
       <div className="view">
@@ -55,4 +52,15 @@ const ListTodoItem = ({
   )
 }
 
-export default ListTodoItem;
+ListTodoItem.propTypes = {
+  deleteTodo: PropTypes.func,
+  completeTodo: PropTypes.func,
+  editTodo: PropTypes.func,
+  text: PropTypes.string,
+  id: PropTypes.number,
+  completed: PropTypes.bool
+}
+
+const mapStateToProps = ({ todos }) => ({ todos });
+
+export default connect(mapStateToProps, { deleteTodo, completeTodo, editTodo })(ListTodoItem);
