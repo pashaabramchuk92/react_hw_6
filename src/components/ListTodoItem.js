@@ -61,6 +61,7 @@ ListTodoItem.propTypes = {
   completed: PropTypes.bool
 }
 
-const mapStateToProps = ({ todos }) => ({ todos });
-
-export default connect(mapStateToProps, { deleteTodo, completeTodo, editTodo })(ListTodoItem);
+export default connect(
+  null,
+  { deleteTodo, completeTodo, editTodo }
+  )(ListTodoItem);

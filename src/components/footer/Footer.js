@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from "react-redux";
 import { changeFilter, deleteAllCompleted } from '../../redux/action';
 import { FilterStatus } from "../../utils/enums";
@@ -59,4 +60,7 @@ Footer.propTypes = {
 
 const mapStateToProps = ({ todos, filters }) => ({ todos, filters });
 
-export default connect(mapStateToProps, { changeFilter, deleteAllCompleted })(Footer);
+export default connect(
+  mapStateToProps,
+  { changeFilter, deleteAllCompleted }
+  )(Footer);
