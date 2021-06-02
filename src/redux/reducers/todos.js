@@ -7,45 +7,7 @@ import {
   DELETE_COMPLETED
 } from '../action/actionTypes';
 
-const initialState = []
-
-// const todos = (state = initialState, { text, id, type }) => {
-//   switch (type) {
-//     case ADD_TODO:
-//       return [
-//         {
-//           text,
-//           id: Date.now(),
-//           completed: false
-//         },
-//         ...state
-//       ];
-
-//     case DELETE_TODO:
-//       return state.filter(todo => todo.id !== id);
-
-//     case COMPLETE_TODO:
-//       return state.map(todo => todo.id === id
-//         ? {...todo, completed: !todo.completed}
-//         : todo);
-
-//     case EDIT_TODO:
-//       return state.map(todo => todo.id === id
-//         ? {...todo, text}
-//         : todo);
-
-//     case ALL_COMPLETE:
-//       return state.map(todo => ({...todo, completed: !todo.completed}));
-
-//     case DELETE_COMPLETED:
-//       return state.filter(todo => !todo.completed);
-
-//     default:
-//       return state;
-//   }
-// }
-
-const todos = (state = initialState, { type, payload }) => {
+const todos = (state = [], { type, payload }) => {
   switch (type) {
     case ADD_TODO:
       return [
@@ -66,8 +28,8 @@ const todos = (state = initialState, { type, payload }) => {
         : todo);
 
     case EDIT_TODO:
-      return state.map(todo => todo.id === payload
-        ? {...todo, payload}
+      return state.map(todo => todo.id === payload.id
+        ? {...todo, text: payload.text}
         : todo);
 
     case ALL_COMPLETE:
