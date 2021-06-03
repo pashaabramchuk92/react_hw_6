@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const ClearComplete = ({ completedTodos, deleteAllCompleted }) => {
 
@@ -17,4 +18,4 @@ ClearComplete.propTypes = {
   deleteAllCompleted: PropTypes.func,
 }
 
-export default ClearComplete;
+export default React.memo(ClearComplete);
