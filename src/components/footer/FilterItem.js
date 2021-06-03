@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const FilterItem = ({  itemEnum, title, changeFilter, isSelected }) => {
   return (
@@ -22,4 +23,4 @@ FilterItem.propTypes = {
   isSelected: PropTypes.bool
 }
 
-export default FilterItem;
+export default React.memo(FilterItem);

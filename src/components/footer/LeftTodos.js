@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const LeftTodos = ({ counter }) => {
   return (
@@ -13,4 +14,4 @@ LeftTodos.propTypes = {
   counter: PropTypes.number
 }
 
-export default LeftTodos;
+export default React.memo(LeftTodos);

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { connect } from 'react-redux';
 import { deleteTodo, completeTodo, editTodo } from "../redux/action";
 
@@ -61,7 +61,7 @@ ListTodoItem.propTypes = {
   completed: PropTypes.bool
 }
 
-export default connect(
+export default(connect(
   null,
   { deleteTodo, completeTodo, editTodo }
-  )(ListTodoItem);
+  )(React.memo(ListTodoItem)));
